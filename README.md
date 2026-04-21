@@ -1,27 +1,35 @@
 # MySQL Yelp SQL Queries
 
-A MySQL coursework project based on a Yelp-style dataset.
+A MySQL coursework project based on a Yelp-style relational dataset.
 
-## Contents
+This repository contains SQL code for:
 
-- `ask3.sql`: table creation, data loading, SQL queries, updates, and inserts
+- database creation
+- table creation with primary and foreign keys
+- data loading from CSV files
+- analytical SQL queries
+- update and insert operations
 
-## Notes
+The project was implemented in **MySQL** and executed through **MySQL Workbench**.
 
-The SQL script assumes the presence of the following CSV files:
+## Repository Contents
 
-- `business.csv`
-- `user.csv`
-- `friend.csv`
-- `review.csv`
+- `ask3.sql` — the main SQL script
+- `business.csv` — business dataset
+- `user.csv` — user dataset
+- `friend.csv` — friendship relations between users
+- `review.csv` — reviews dataset
 
-These files were provided as part of coursework material and are not included in this repository.
+## Repository Structure
 
-## Topics
+```text
+.
+├── ask3.sql
+├── business.csv
+├── user.csv
+├── friend.csv
+├── review.csv
+├── README.md
+└── LICENSE
 
-- MySQL
-- table creation
-- foreign keys
-- data loading with CSV
-- aggregation queries
-- updates and inserts
+
