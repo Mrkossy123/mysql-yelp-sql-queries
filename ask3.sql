@@ -66,26 +66,25 @@ create table review
   foreign key(user_id) references user(id) on update cascade on delete cascade
 ) engine=innodb;
 
-LOAD DATA INFILE 'C:\\Program Files\\MySQL\\MySQL Server 8.0\\uploads\\business.csv'
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\business.csv'
 INTO TABLE business CHARACTER SET latin1
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE 'C:\\Program Files\\MySQL\\MySQL Server 8.0\\uploads\\user.csv'
-INTO TABLE user CHARACTER SET latin1
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\user.csv'
+INTO TABLE `user` CHARACTER SET latin1
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE 'C:\\Program Files\\MySQL\\MySQL Server 8.0\\uploads\\friend.csv'
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\friend.csv'
 INTO TABLE friend CHARACTER SET latin1
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE 'C:\\Program Files\\MySQL\\MySQL Server 8.0\\uploads\\review.csv'
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\review.csv'
 INTO TABLE review CHARACTER SET latin1
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n';
-
 
 -- 3b
 
@@ -159,3 +158,16 @@ insert into review
 select id, 3, "2021-12-01 20:20:20", "OK", 5, 6, 7, id, "mpla_mpla"
 from business
 where is_open=1;
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE business
+SET state = 'MA';
+
+SET SQL_SAFE_UPDATES = 1;
+
+
+USE yelp;
+SELECT * FROM `user` WHERE id='mpla_mpla';
+SELECT COUNT(*) FROM review WHERE user_id='mpla_mpla';
